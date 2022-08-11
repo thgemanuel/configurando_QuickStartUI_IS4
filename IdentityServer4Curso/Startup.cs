@@ -58,6 +58,7 @@ namespace IdentityServer4Curso
             var connectionString = Configuration.GetConnectionString("Configuration");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
+            //preconfiguracao do IdentityServer4
             var builder = services.AddIdentityServer(options =>
                 {
                     options.Events.RaiseErrorEvents = true;
@@ -93,6 +94,7 @@ namespace IdentityServer4Curso
                 });
 
             // not recommended for production - you need to store your key material somewhere secure
+            //adiciona chave de criptografia padrao
             builder.AddDeveloperSigningCredential();
 
             services.AddAuthentication()
